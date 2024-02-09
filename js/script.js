@@ -13,6 +13,13 @@ Questo esercizio richiede un po' di ricerca ma anche un po' di domande che accom
 Buon divertimento a tutte e a tutti!
 */
 
+const daysOutput = document.querySelector("#days-output");
+const hoursOutput = document.querySelector("#hours-output");
+const minutesOutput = document.querySelector("#minutes-output");
+const secondsOutput = document.querySelector("#seconds-output");
+const millisecondsOutput = document.querySelector("#milliseconds-output");
+
+
 // definisco la data desiderata
 const theBigDay = new Date("2024-02-12T09:30:00");
 console.log(theBigDay);
@@ -39,27 +46,36 @@ let millisecondsTheBigDay = theBigDay.getTime();
 console.log("Millisecondi data di oggi: ", millisecondsToday);
 console.log("Millisecondi data countdown: ", millisecondsTheBigDay);
 
+setInterval(countdown, 1);
 
-// calcolo i millisecondi di differenza tra il momento dell'esecuzione del programma e la data del countdown
-let timeLeft = millisecondsTheBigDay - millisecondsToday;
-console.log("Conto alla rovescia: ", timeLeft, " millisecondi");
+function countdown() {
 
-// calcolo i giorni restanti
-let daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-console.log("Giorni: ", daysLeft);
+    // calcolo i millisecondi di differenza tra il momento dell'esecuzione del programma e la data del countdown
+    let timeLeft = millisecondsTheBigDay - new Date().getTime();
 
-// calcolo le ore restanti
-let hoursLeft = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
-console.log("Ore: ", hoursLeft);
+    // calcolo i giorni restanti
+    let daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
 
-// calcolo i minuti restanti
-let minutesLeft = Math.floor((timeLeft / (1000 * 60)) % 60);
-console.log("Minuti: ", minutesLeft);
+    // calcolo le ore restanti
+    let hoursLeft = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
 
-// calcolo i secondi restanti
-let secondsLeft = Math.floor((timeLeft / (1000)) % 60);
-console.log("Secondi: ", secondsLeft);
+    // calcolo i minuti restanti
+    let minutesLeft = Math.floor((timeLeft / (1000 * 60)) % 60);
 
-// calcolo i millisecondi restanti
-let millisecondsLeft = Math.floor((timeLeft) % 1000);
-console.log("Millisecondi: ", millisecondsLeft);
+    // calcolo i secondi restanti
+    let secondsLeft = Math.floor((timeLeft / (1000)) % 60);
+
+    // calcolo i millisecondi restanti
+    let millisecondsLeft = Math.floor((timeLeft) % 1000);
+
+    daysOutput.innerHTML = daysLeft;
+    hoursOutput.innerHTML = hoursLeft.toString().padStart(2, "0");
+    minutesOutput.innerHTML = minutesLeft.toString().padStart(2, "0");
+    secondsOutput.innerHTML = secondsLeft.toString().padStart(2, "0");
+    millisecondsOutput.innerHTML = millisecondsLeft;
+
+    // quando il tempo scade
+    if (timeLeft <= 0) {
+        clearInterval(countdown);
+    }
+}
