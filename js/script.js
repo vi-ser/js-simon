@@ -43,3 +43,23 @@ console.log("Millisecondi data countdown: ", millisecondsTheBigDay);
 // calcolo i millisecondi di differenza tra il momento dell'esecuzione del programma e la data del countdown
 let timeLeft = millisecondsTheBigDay - millisecondsToday;
 console.log("Conto alla rovescia: ", timeLeft, " millisecondi");
+
+// calcolo i giorni restanti
+let daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+console.log("Giorni: ", daysLeft);
+
+// calcolo le ore restanti
+let hoursLeft = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+console.log("Ore: ", hoursLeft);
+
+// calcolo i minuti restanti
+let minutesLeft = Math.floor((timeLeft / (1000 * 60)) % 60);
+console.log("Minuti: ", minutesLeft);
+
+// calcolo i secondi restanti
+let secondsLeft = Math.floor((timeLeft / (1000)) % 60);
+console.log("Secondi: ", secondsLeft);
+
+// calcolo i millisecondi restanti
+let millisecondsLeft = Math.floor((timeLeft) % 1000);
+console.log("Millisecondi: ", millisecondsLeft);
