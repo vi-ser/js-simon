@@ -46,7 +46,8 @@ let millisecondsTheBigDay = theBigDay.getTime();
 console.log("Millisecondi data di oggi: ", millisecondsToday);
 console.log("Millisecondi data countdown: ", millisecondsTheBigDay);
 
-setInterval(countdown, 1);
+const timer = setInterval(countdown, 1000);
+countdown();
 
 function countdown() {
 
@@ -76,5 +77,7 @@ function countdown() {
         hoursOutput.innerHTML = "00";
         minutesOutput.innerHTML = "00";
         secondsOutput.innerHTML = "00";
+
+        clearInterval(timer);
     }
 }
