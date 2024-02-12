@@ -21,7 +21,7 @@ const millisecondsOutput = document.querySelector("#milliseconds-output");
 
 
 // definisco la data desiderata
-const theBigDay = new Date("2024-02-13T09:30:00");
+const theBigDay = new Date("2024-02-12T09:30:00");
 console.log(theBigDay);
 
 // definisco la data di oggi
@@ -69,10 +69,12 @@ function countdown() {
     hoursOutput.innerHTML = hoursLeft.toString().padStart(2, "0");
     minutesOutput.innerHTML = minutesLeft.toString().padStart(2, "0");
     secondsOutput.innerHTML = secondsLeft.toString().padStart(2, "0");
-    millisecondsOutput.innerHTML = millisecondsLeft;
 
     // quando il tempo scade
     if (timeLeft <= 0) {
-        clearInterval(countdown);
+        daysOutput.innerHTML = "0";
+        hoursOutput.innerHTML = "00";
+        minutesOutput.innerHTML = "00";
+        secondsOutput.innerHTML = "00";
     }
 }
