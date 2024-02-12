@@ -21,7 +21,7 @@ const millisecondsOutput = document.querySelector("#milliseconds-output");
 
 
 // definisco la data desiderata
-const theBigDay = new Date("2024-02-12T09:30:00");
+const theBigDay = new Date("2024-02-13T09:30:00");
 console.log(theBigDay);
 
 // definisco la data di oggi
@@ -64,9 +64,6 @@ function countdown() {
 
     // calcolo i secondi restanti
     let secondsLeft = Math.floor((timeLeft / (1000)) % 60);
-
-    // calcolo i millisecondi restanti
-    let millisecondsLeft = Math.floor((timeLeft) % 1000);
 
     daysOutput.innerHTML = daysLeft;
     hoursOutput.innerHTML = hoursLeft.toString().padStart(2, "0");
